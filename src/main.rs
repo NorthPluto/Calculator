@@ -19,7 +19,7 @@ fn main() {
         match typing {
             CalculatorTyping::Main => select_cal = logic::main_view_logic::main_view_logic(),
             CalculatorTyping::TwoNumCal => {
-                select_cal = TwoNumCalculator::two_num_calculator(&two_num_cal);
+                select_cal = TwoNumCalculator::two_num_calculator(&mut two_num_cal);
             }
             CalculatorTyping::Exit => break,
             CalculatorTyping::Error => {

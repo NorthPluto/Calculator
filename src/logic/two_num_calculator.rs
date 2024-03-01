@@ -1,5 +1,6 @@
 use crate::gui::base_tools::{clear_terminal, wait_for_keypress};
 
+use crate::gui::base_tools;
 use std::io;
 
 pub enum Operation {
@@ -19,13 +20,21 @@ pub struct TwoNumCalculator {
     pub inherit: bool,
 }
 impl TwoNumCalculator {
-    pub fn two_num_calculator(&self) -> u8 {
+    pub fn two_num_calculator(&mut self) -> u8 {
         loop {
             clear_terminal();
             println!("当前版本两数计算器支持运算方式：四则运算、乘方运算");
             println!("请输入第一个数：");
             let mut num1 = String::new();
             io::stdin().read_line(&mut num1).expect("无法读取行");
+            match num1.trim().parse() {
+                Ok(num) => self.num1 = Some(num),
+                Err(_) => {
+                    println!("请输入数字!!!");
+                    base_tools::wait_for_keypress();
+                    continue;
+                }
+            }
         }
         0
     }
