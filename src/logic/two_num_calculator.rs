@@ -72,7 +72,8 @@ impl TwoNumCalculator {
                     match self.do_inherit() {
                         Ok(b) => {
                             self.inherit = b;
-                            self.num1 = self.res;
+                            if b { self.num1 = self.res; }
+                            else { self.num1 = None; }
                             self.num2 = None;
                             self.func = Operation::None;
                             self.res = None;
