@@ -1,6 +1,5 @@
-use crossterm::event::{Event, KeyCode, KeyEvent, KeyModifiers};
+use crossterm::event::{Event, KeyEvent};
 use crossterm::terminal::{disable_raw_mode, enable_raw_mode};
-use std::io;
 use std::process::Command;
 use std::sync::mpsc;
 use std::thread;

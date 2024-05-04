@@ -58,7 +58,9 @@ impl TwoNumCalculator {
                 None => match self.do_inherit() {
                     Ok(b) => {
                         self.inherit = b;
-                        if !self.inherit { self.num1 = None; }
+                        if !self.inherit {
+                            self.num1 = None;
+                        }
                         self.num2 = None;
                         self.func = Operation::None;
                     }
@@ -73,8 +75,11 @@ impl TwoNumCalculator {
                     match self.do_inherit() {
                         Ok(b) => {
                             self.inherit = b;
-                            if b { self.num1 = self.res; }
-                            else { self.num1 = None; }
+                            if b {
+                                self.num1 = self.res;
+                            } else {
+                                self.num1 = None;
+                            }
                             self.num2 = None;
                             self.func = Operation::None;
                             self.res = None;
@@ -171,8 +176,8 @@ impl Operation {
         num1: Option<f64>,
         num2: Option<f64>,
     ) -> Result<Option<f64>, &'static str> {
-        let mut col1 = 0.0;
-        let mut col2 = 0.0;
+        let col1;
+        let col2;
         match num1 {
             None => panic!("Num的值为空"),
             Some(num) => col1 = num,

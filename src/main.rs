@@ -2,8 +2,8 @@ mod default_typing;
 mod gui;
 mod logic;
 
+use crate::gui::base_tools;
 use default_typing::calculater_typing::CalculatorTyping;
-use gui::base_tools;
 use logic::two_num_calculator::{Operation, TwoNumCalculator};
 fn main() {
     let mut typing: CalculatorTyping = CalculatorTyping::Main;
